@@ -799,6 +799,9 @@ class Popover extends React.Component {
       </View>
     );
 
+    if (forcedContentSize && ( forcedContentSize.height < 0 || forcedContentSize.width < 0)) {
+      return null;
+    }
     if (this.props.showInModal) {
       return (
         <Modal transparent={true} supportedOrientations={['portrait', 'landscape']} hardwareAccelerated={true} visible={this.state.visible} onRequestClose={this.props.onClose}>
